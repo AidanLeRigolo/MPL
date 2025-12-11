@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from data_ia import *
+from pts_nn.data_ia import *
 
 
 # ---------------- Réseau Neuronal ---------------- #
