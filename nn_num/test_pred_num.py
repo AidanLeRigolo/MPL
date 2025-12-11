@@ -1,5 +1,5 @@
 import numpy as np
-from class_num_nn import NeuralNetwork
+from nn_num.class_num_nn import NeuralNetwork
 import tkinter as tk
 from PIL import Image, ImageDraw
 
