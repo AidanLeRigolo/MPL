@@ -313,7 +313,7 @@ if __name__ == "__main__":
         layer.weights = best_w
         layer.biases = best_b
     
-    nn.save("NEURAL_NETWORK/class_num_nn/model.pkl")
+    nn.save("Neural_network/class_num_nn/model.pkl")
     print("------ Nouveau model sauvegarder ------")
 
 
