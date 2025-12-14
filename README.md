@@ -1,89 +1,179 @@
-# Neural_network
-Petit dépôt d'exemples et d'expérimentations autour de réseaux neuronaux numériques en Python.
+# Neural Network
 
-## Aperçu
+A Python implementation of deep neural networks with comprehensive examples and experiments focused on digit recognition and pattern classification using NumPy.
 
-Ce dépôt contient :
+## Project Description
 
-- `class_num_nn.py` : classes et fonctions pour construire un réseau neuronal dense simple (implémentation NumPy).
-- `data_ia.py` : utilitaires pour la gestion / génération de données (jeu d'exemples).
-- `nn_num/` : exemples et scripts numériques liés au réseau neuronal :
-	- `class_num_nn.py` : (copie ou module réutilisable)
-	- `test_pred_num.py` : script d'exécution / prédiction de démonstration
+This repository contains a lightweight, educational implementation of neural networks from scratch using NumPy. It provides practical examples of building dense layers, activation functions, loss calculations, and backpropagation algorithms. The project includes two main modules:
 
-## Prérequis
+- **nn_num**: Digit recognition neural network trained on numeric datasets
+- **pts_nn**: Pattern recognition networks for classifying geometric patterns
 
-Installer Python 3.10+ (ou celui de votre environnement). Le dépôt fonctionne avec un environnement virtuel.
+This project is ideal for learning the fundamentals of neural networks and understanding how backpropagation works under the hood.
 
-Principales dépendances :
+## Features
 
-- `numpy`
-- `scikit-learn` (importé comme `sklearn`)
-- `scipy`
-- `Pillow` (PIL)
-- `matplotlib`
+✨ **Core Neural Network Components**
+- Dense (fully connected) layers with customizable dimensions
+- Activation functions: ReLU and Softmax
+- Loss functions: Categorical Cross-Entropy
+- L2 regularization support for preventing overfitting
+- Full backpropagation implementation
 
-Recommandation : créer un environnement virtuel et installer les dépendances :
+📊 **Data Generation & Utilities**
+- Multiple synthetic dataset generators (vortex, square, heart patterns)
+- Data normalization and preprocessing utilities
+- Support for sklearn datasets (e.g., digit recognition)
 
-Windows PowerShell:
+🎯 **Interactive Prediction**
+- GUI-based digit drawing interface using Tkinter
+- Real-time prediction with confidence scores
+- Visual feedback for predictions
 
-```powershell
-python -m venv .venv
-.\\.venv\\Scripts\\Activate.ps1
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+🔬 **Pattern Classification**
+- Support for multi-class classification
+- Examples for learning on synthetic geometric patterns
+
+## Project Structure
+
+```
+Neural_network/
+├── nn_num/
+│   ├── class_num_nn.py          # Digit recognition network implementation
+│   └── test_pred_num.py         # Interactive digit drawing and prediction
+├── pts_nn/
+│   ├── class_pts_nn.py          # Pattern classification network
+│   └── data_ia.py               # Synthetic data generation (vortex, square, heart)
+├── README.md                     # This file
+└── requirements.txt              # Python dependencies
 ```
 
-Si vous ne disposez pas encore de `requirements.txt`, installez les paquets directement :
+## Installation
 
-```powershell
-python -m pip install numpy scikit-learn scipy pillow matplotlib
+### Prerequisites
+
+- Python 3.10 or higher
+- pip package manager
+
+### Setup
+
+1. **Clone or download the repository**
+   ```bash
+   cd Neural_network
+   ```
+
+2. **Create a virtual environment** (recommended)
+
+   On Windows PowerShell:
+   ```powershell
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   ```
+
+   On macOS/Linux:
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
+
+3. **Install dependencies**
+
+   Option A - Using requirements.txt:
+   ```bash
+   python -m pip install --upgrade pip
+   pip install -r requirements.txt
+   ```
+
+   Option B - Install packages directly:
+   ```bash
+   pip install numpy scikit-learn scipy pillow matplotlib
+   ```
+
+## Usage
+
+### Digit Recognition with Interactive GUI
+
+Run the interactive digit drawing application:
+
+```bash
+python nn_num/test_pred_num.py
 ```
 
-## Utilisation
+This launches a window where you can:
+- Draw digits (0-9) with your mouse
+- Get instant predictions from the trained network
+- View confidence scores for each digit
 
-Exemples rapides :
+### Pattern Classification
 
-- Lancer un script de test/prédiction :
-
-```powershell
-.\\.venv\\Scripts\\python.exe nn_num\\test_pred_num.py
-```
-
-- Importer et réutiliser les classes du réseau :
+Use the pts_nn module for classifying geometric patterns:
 
 ```python
-from class_num_nn import Layer_Dense
-# construire un réseau, appeler .forward(), etc.
+from pts_nn.class_pts_nn import NeuralNetwork
+from pts_nn.data_ia import vortex, square, hearth
+
+# Generate synthetic data
+X, y = vortex(points=100, classes=3)
+
+# Create and train network
+nn = NeuralNetwork([2, 64, 32, 3])
+nn.train(X, y, epochs=1000, learning_rate=0.1)
+
+# Make predictions
+predictions = nn.predict(X)
 ```
 
-## Structure du dépôt
+### Import and Use Components
 
-- `class_num_nn.py` — implémentation du réseau dense et fonctions associées.
-- `data_ia.py` — génération et préparation de données d'entraînement/test.
-- `nn_num/` — dossiers d'exemples et scripts.
-- `README.md` — ce fichier.
+```python
+from nn_num.class_num_nn import Layer_Dense, Activation_ReLu, NeuralNetwork
 
-## Tests et développement
+# Create a dense layer
+layer = Layer_Dense(n_inputs=784, n_neurons=128)
 
-Il n'y a pas de suite de tests automatisés fournie; pour tester rapidement les exemples, exécutez les scripts dans `nn_num/`.
+# Forward pass
+layer.forward(input_data)
 
-## Fichiers recommandés
-
-Ajoutez un fichier `requirements.txt` contenant :
-
-```
-numpy
-scikit-learn
-scipy
-Pillow
-matplotlib
+# Backward pass (gradient computation)
+layer.backward(gradients)
 ```
 
-## Contact
+## Technologies Used
 
-Pour toute question ou contribution, ouvrez une issue ou proposez une pull request.
+- **NumPy** (1.20+) - Numerical computing and linear algebra
+- **scikit-learn** - Dataset loading and preprocessing utilities
+- **SciPy** - Advanced scientific computing functions
+- **Pillow (PIL)** - Image processing and manipulation
+- **Matplotlib** - Data visualization
+- **Tkinter** - GUI for interactive predictions
+
+## Future Improvements
+
+🚀 **Planned Enhancements**
+
+- **Convolutional Neural Networks (CNN)** - Add CNN layers for better image classification
+- **Advanced Optimizers** - Implement Adam, RMSprop, and other modern optimizers
+- **Batch Normalization** - Improve training stability and speed
+- **Dropout Regularization** - Additional regularization technique
+- **Model Serialization** - Save and load trained models efficiently
+- **Unit Tests** - Comprehensive test suite for all components
+- **Documentation** - Detailed docstrings and tutorial notebooks
+- **GPU Support** - Optional GPU acceleration using CuPy or similar
+- **Additional Activation Functions** - Sigmoid, Tanh, ELU, etc.
+- **Hyperparameter Tuning** - Tools for automated parameter optimization
+
+## Contributing
+
+Contributions are welcome! Feel free to:
+- Report issues or bugs
+- Suggest new features
+- Submit pull requests with improvements
+- Share feedback and suggestions
+
+## License
+
+This project is provided as-is for educational purposes.
 
 ---
-Fait automatiquement par l'assistant — adaptez-le selon vos besoins.
-# Neural_network
+
+**Last Updated:** December 2025
