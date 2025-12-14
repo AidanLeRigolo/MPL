@@ -75,4 +75,5 @@ if __name__ == "__main__":
     nn = NeuralNetwork(layer_sizes=[64, 128, 64, 64, 32, 32, 10]) # dois avoir le mm nbr de layers et neurones
     nn.load("python/python_ia/MLP_chiffre/Best_mdl_class_num.pkl")
 
+
     create_drawing_interface(nn)
