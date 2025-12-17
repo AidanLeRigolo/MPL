@@ -38,6 +38,7 @@ This project is ideal for learning the fundamentals of neural networks and under
 
 ```
 Neural_network/
+├── MLP_base.py                  # Simple MLP implementation for learning fundamentals
 ├── nn_num/
 │   ├── class_num_nn.py          # Digit recognition network implementation
 │   └── test_pred_num.py         # Interactive digit drawing and prediction
@@ -90,6 +91,22 @@ Neural_network/
    ```
 
 ## Usage
+
+### Basic MLP Implementation (Learning Fundamentals)
+
+Start with `MLP_base.py` to understand the core concepts of neural networks:
+
+```bash
+python MLP_base.py
+```
+
+This simple implementation demonstrates:
+- How layers work with forward and backward propagation
+- Activation functions in action
+- Loss calculation and optimization
+- Perfect for beginners to understand MLP fundamentals
+
+For now this code have a random data set, so it's not learning anything useful.
 
 ### Digit Recognition with Interactive GUI
 
