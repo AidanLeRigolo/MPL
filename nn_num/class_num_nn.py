@@ -278,7 +278,7 @@ if __name__ == "__main__":
     # ---------------- Hyperparametre ---------------- #
 
     taille_input = 8*8
-    epochs = 10
+    epochs = 500
     nbr_sortie = 10
     layer_sizes = [taille_input, 128, 64, 64, 32, 32, nbr_sortie] # le premier doit etre 64, 8*8=64 psk image 8*8
 
