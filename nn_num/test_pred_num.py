@@ -1,5 +1,5 @@
 import numpy as np
-from nn_num.class_num_nn import NeuralNetwork
+from class_num_nn import NeuralNetwork
 import tkinter as tk
 from PIL import Image, ImageDraw
 
@@ -73,6 +73,6 @@ def create_drawing_interface(nn):
 
 if __name__ == "__main__":
     nn = NeuralNetwork(layer_sizes=[64, 128, 64, 64, 32, 32, 10]) # dois avoir le mm nbr de layers et neurones
-    nn.load("path_to_save_model/num_class_nn_model.pkl")
+    nn.load("nn_num/num_class_nn_model.pkl")
 
     create_drawing_interface(nn)

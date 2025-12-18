@@ -278,7 +278,7 @@ if __name__ == "__main__":
     # ---------------- Hyperparametre ---------------- #
 
     taille_input = 8*8
-    epochs = 1000
+    epochs = 10
     nbr_sortie = 10
     layer_sizes = [taille_input, 128, 64, 64, 32, 32, nbr_sortie] # le premier doit etre 64, 8*8=64 psk image 8*8
 
@@ -313,7 +313,7 @@ if __name__ == "__main__":
         layer.weights = best_w
         layer.biases = best_b
     
-    nn.save("path_to_save_model/num_class_nn_model.pkl")
+    nn.save("nn_num/num_class_nn_model.pkl")
     print("------ Nouveau model sauvegarder ------")
 
 
