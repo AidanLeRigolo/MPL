@@ -4,12 +4,13 @@ A Python implementation of deep neural networks with comprehensive examples and 
 
 ## Project Description
 
-This repository contains a lightweight, educational implementation of neural networks from scratch using NumPy. It provides practical examples of building dense layers, activation functions, loss calculations, and backpropagation algorithms. The project includes two main modules:
+This repository contains a lightweight, educational implementation of neural networks from scratch using NumPy. It provides practical examples of building dense layers, activation functions, loss calculations, and backpropagation algorithms. The project includes two main modules and one exemple:
 
 - **nn_num**: Digit recognition neural network trained on numeric datasets
 - **pts_nn**: Pattern recognition networks for classifying geometric patterns
+- **MLP_base**: simple code to understand with eeez
 
-This project is ideal for learning the fundamentals of neural networks and understanding how backpropagation works under the hood.
+This project is ideal for learning the fundamentals of neural networks and understanding how everything works under the hood.
 
 ## Features
 
@@ -44,7 +45,7 @@ Neural_network/
 │   └── test_pred_num.py         # Interactive digit drawing and prediction
 ├── pts_nn/
 │   ├── class_pts_nn.py          # Pattern classification network
-│   └── data_ia.py               # Synthetic data generation (vortex, square, heart)
+│   └── data_ia.py               # Synthetic data generation (vortex, square, heart, ...)
 ├── README.md                     # This file
 └── requirements.txt              # Python dependencies
 ```
@@ -106,7 +107,7 @@ This simple implementation demonstrates:
 - Loss calculation and optimization
 - Perfect for beginners to understand MLP fundamentals
 
-For now this code have a random data set, so it's not learning anything useful.
+For now this code have a random data set, it's not learning anything useful.
 
 ### Digit Recognition with Interactive GUI
 
@@ -118,7 +119,7 @@ python nn_num/test_pred_num.py
 
 This launches a window where you can:
 - Draw digits (0-9) with your mouse
-- Get instant predictions from the trained network
+- Get instant predictions from a pre-trained network
 - View confidence scores for each digit
 
 ### Pattern Classification
@@ -126,14 +127,15 @@ This launches a window where you can:
 Use the pts_nn module for classifying geometric patterns:
 
 ```python
-from pts_nn.class_pts_nn import NeuralNetwork
-from pts_nn.data_ia import vortex, square, hearth
+from class_pts_nn import NeuralNetwork
+from data_ia import *
 
 # Generate synthetic data
-X, y = vortex(points=100, classes=3)
+X, y = vortex(points=100, classes=3) 
+# You can see the dataset you want to generate before training directly in data_ia.py
 
 # Create and train network
-nn = NeuralNetwork([2, 64, 32, 3])
+nn = NeuralNetwork([2, 64, 32, 3]) # Last diggits always = classes
 nn.train(X, y, epochs=1000, learning_rate=0.1)
 
 # Make predictions
