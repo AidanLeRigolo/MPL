@@ -128,7 +128,7 @@ class MLP:
             losses.append(loss)
 
             self.backward(X, y)
-
+            
             print(f"Epoch {epoch+1}/{epochs} - Loss: {loss:.6f}")
 
         return losses
@@ -159,6 +159,6 @@ mlp = MLP(
     learning_rate=0.005
 )
 
-losses = mlp.train(X, y, epochs=1000000)
+losses = mlp.train(X, y, epochs=10000)
 plot_loss(losses)
 
